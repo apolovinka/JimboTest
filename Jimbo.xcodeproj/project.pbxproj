@@ -29,7 +29,7 @@
 		F66777982239542B00AB4BDB /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777972239542B00AB4BDB /* ServicesAssembly.swift */; };
 		F667779B2239545300AB4BDB /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667779A2239545300AB4BDB /* CoreAssembly.swift */; };
 		F66777A82239549700AB4BDB /* TemplatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777A12239549700AB4BDB /* TemplatesViewModel.swift */; };
-		F66777A92239549700AB4BDB /* TemplatesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777A32239549700AB4BDB /* TemplatesAssembly.swift */; };
+		F66777A92239549700AB4BDB /* TemplatesModuleAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777A32239549700AB4BDB /* TemplatesModuleAssemly.swift */; };
 		F66777AA2239549700AB4BDB /* TemplatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777A52239549700AB4BDB /* TemplatesViewController.swift */; };
 		F66777AB2239549700AB4BDB /* TemplatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777A72239549700AB4BDB /* TemplatesRouter.swift */; };
 		F66777B422395E4900AB4BDB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777AF22395E3100AB4BDB /* Result.swift */; };
@@ -43,7 +43,7 @@
 		F66777E12239668F00AB4BDB /* ApplicationNotificationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777E02239668C00AB4BDB /* ApplicationNotificationProtocol.swift */; };
 		F66777E22239673000AB4BDB /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777DE2239650A00AB4BDB /* NetworkingError.swift */; };
 		F66777E32239673000AB4BDB /* TemplatesListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777DC2239650A00AB4BDB /* TemplatesListEndpoint.swift */; };
-		F66777E42239673000AB4BDB /* TemplatesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777DA2239650A00AB4BDB /* TemplatesParser.swift */; };
+		F66777E42239673000AB4BDB /* TemplatesListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777DA2239650A00AB4BDB /* TemplatesListParser.swift */; };
 		F66777E72239678C00AB4BDB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F66777E92239678C00AB4BDB /* Localizable.strings */; };
 		F66777EB2239686200AB4BDB /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777EA2239686200AB4BDB /* String+Localizable.swift */; };
 		F66777ED223968F500AB4BDB /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66777EC223968F500AB4BDB /* Configurations.swift */; };
@@ -128,7 +128,7 @@
 		F66777972239542B00AB4BDB /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 		F667779A2239545300AB4BDB /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		F66777A12239549700AB4BDB /* TemplatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplatesViewModel.swift; sourceTree = "<group>"; };
-		F66777A32239549700AB4BDB /* TemplatesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplatesAssembly.swift; sourceTree = "<group>"; };
+		F66777A32239549700AB4BDB /* TemplatesModuleAssemly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplatesModuleAssemly.swift; sourceTree = "<group>"; };
 		F66777A52239549700AB4BDB /* TemplatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplatesViewController.swift; sourceTree = "<group>"; };
 		F66777A72239549700AB4BDB /* TemplatesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplatesRouter.swift; sourceTree = "<group>"; };
 		F66777AF22395E3100AB4BDB /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		F66777C02239613400AB4BDB /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F66777C7223963EE00AB4BDB /* APINetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetworkingClient.swift; sourceTree = "<group>"; };
 		F66777D82239650A00AB4BDB /* NetworkingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingRequest.swift; sourceTree = "<group>"; };
-		F66777DA2239650A00AB4BDB /* TemplatesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesParser.swift; sourceTree = "<group>"; };
+		F66777DA2239650A00AB4BDB /* TemplatesListParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesListParser.swift; sourceTree = "<group>"; };
 		F66777DC2239650A00AB4BDB /* TemplatesListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesListEndpoint.swift; sourceTree = "<group>"; };
 		F66777DE2239650A00AB4BDB /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		F66777E02239668C00AB4BDB /* ApplicationNotificationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNotificationProtocol.swift; sourceTree = "<group>"; };
@@ -496,7 +496,7 @@
 		F66777A22239549700AB4BDB /* Assemby */ = {
 			isa = PBXGroup;
 			children = (
-				F66777A32239549700AB4BDB /* TemplatesAssembly.swift */,
+				F66777A32239549700AB4BDB /* TemplatesModuleAssemly.swift */,
 			);
 			path = Assemby;
 			sourceTree = "<group>";
@@ -576,7 +576,7 @@
 		F66777D92239650A00AB4BDB /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				F66777DA2239650A00AB4BDB /* TemplatesParser.swift */,
+				F66777DA2239650A00AB4BDB /* TemplatesListParser.swift */,
 				F69B85672266714E0074D82F /* TemplateParser.swift */,
 			);
 			name = Parsers;
@@ -997,7 +997,7 @@
 			files = (
 				F66777922239526100AB4BDB /* String+Utils.swift in Sources */,
 				F66777AB2239549700AB4BDB /* TemplatesRouter.swift in Sources */,
-				F66777A92239549700AB4BDB /* TemplatesAssembly.swift in Sources */,
+				F66777A92239549700AB4BDB /* TemplatesModuleAssemly.swift in Sources */,
 				F667775922394E3C00AB4BDB /* ApplicationScreenLauncher.swift in Sources */,
 				F68D9ECB2268DB61001D5F38 /* Unmanaged+Utils.swift in Sources */,
 				F667775622394DE300AB4BDB /* UserStoryModulesProvider.swift in Sources */,
@@ -1062,7 +1062,7 @@
 				F66777ED223968F500AB4BDB /* Configurations.swift in Sources */,
 				F69B85682266714E0074D82F /* TemplateParser.swift in Sources */,
 				F667775C22394E9100AB4BDB /* ApplicationAssembler.swift in Sources */,
-				F66777E42239673000AB4BDB /* TemplatesParser.swift in Sources */,
+				F66777E42239673000AB4BDB /* TemplatesListParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

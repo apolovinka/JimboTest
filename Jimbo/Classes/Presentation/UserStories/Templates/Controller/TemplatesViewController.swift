@@ -18,6 +18,9 @@ enum TemplatesAppearanceState {
 
 class TemplatesViewController: UIViewController {
 
+    static let inAnimationDuration: TimeInterval = 0.3
+    static let outAnimationDuration: TimeInterval = 0.1
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var previewButton: UIButton!
@@ -130,7 +133,8 @@ class TemplatesViewController: UIViewController {
             self.previewButton.alpha = 0
             self.previewButton.isHidden = false
         }
-        UIView.animate(withDuration: hidden ? 0.1 : 0.33, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
+        let duration = hidden ? TemplatesViewController.outAnimationDuration : TemplatesViewController.inAnimationDuration
+        UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
             self.previewButton.alpha = hidden ? 0 : 1.0
         }, completion: {
             finished in
@@ -146,7 +150,8 @@ class TemplatesViewController: UIViewController {
             self.themesPickerView.isHidden = false
             self.themesPickerView.set(enabled: true)
         }
-        UIView.animate(withDuration: hidden ? 0.1 : 0.33, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
+        let duration = hidden ? TemplatesViewController.outAnimationDuration : TemplatesViewController.inAnimationDuration
+        UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
             self.themesPickerView.alpha = hidden ? 0 : 1.0
         }, completion: {
             finished in
