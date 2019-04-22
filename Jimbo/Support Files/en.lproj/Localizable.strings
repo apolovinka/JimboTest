@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Jimbo
+
+  Created by Alexander Polovinka on 3/13/19.
+  Copyright © 2019 Jimbo. All rights reserved.
+*/
+
+// MARK: Common
+
+"button-title-cancel" = "Cancel";
+"button-title-edit" = "Edit";
+"button-title-done" = "Done";
+"button-title-save" = "Save";
+"button-title-yes" = "Yes";
+"button-title-no" = "No";
+"button-title-next" = "Next";
+"button-title-delete" = "Delete";
+"button-title-dismiss" = "Dismiss";
+
+// MARK: Networking
+
+"parser-error-invalid-data" = "Cannot parse a data";

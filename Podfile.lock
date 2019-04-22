@@ -1,0 +1,90 @@
+PODS:
+  - Alamofire (4.8.2)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - Emitter (0.0.9):
+    - BlocksKit/DynamicDelegate
+  - Kingfisher (5.3.1)
+  - LightRoute (2.1.20)
+  - ObjectMapper (3.4.2)
+  - ObjectMapperAdditions/Core (6.0.0):
+    - ObjectMapper
+  - ObjectMapperAdditions/Realm (6.0.0):
+    - ObjectMapper
+    - ObjectMapperAdditions/Core
+    - RealmSwift
+  - PureLayout (3.1.4)
+  - Realm (3.14.1):
+    - Realm/Headers (= 3.14.1)
+  - Realm/Headers (3.14.1)
+  - RealmSwift (3.14.1):
+    - Realm (= 3.14.1)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+  - Swinject (2.6.0)
+  - SwinjectAutoregistration (2.6.0):
+    - Swinject (~> 2.6)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.6)
+
+DEPENDENCIES:
+  - Alamofire
+  - Emitter
+  - Kingfisher
+  - LightRoute (from `https://github.com/apolovinka/LightRoute.git`)
+  - ObjectMapper (~> 3.4)
+  - ObjectMapperAdditions/Realm (~> 6.0)
+  - PureLayout
+  - RealmSwift
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - Swinject
+  - SwinjectAutoregistration
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - BlocksKit
+    - Emitter
+    - Kingfisher
+    - ObjectMapper
+    - ObjectMapperAdditions
+    - PureLayout
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxSwift
+    - Swinject
+    - SwinjectAutoregistration
+    - SwinjectStoryboard
+
+EXTERNAL SOURCES:
+  LightRoute:
+    :git: https://github.com/apolovinka/LightRoute.git
+
+CHECKOUT OPTIONS:
+  LightRoute:
+    :commit: 424867716e0990e48fb2ba4f567309155bb5ac2a
+    :git: https://github.com/apolovinka/LightRoute.git
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  Emitter: cf50bf44fc8817535018fbd6c4fd576b87803e78
+  Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  LightRoute: aa65803a1d984be3be83651b433699077bfe6ab3
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  ObjectMapperAdditions: 6b582f52aa319e9d32c80a3f43541e51d3be3f43
+  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
+  Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
+  RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
+  SwinjectAutoregistration: 93a908f7543c401b0c315305ac0ae501efdbce89
+  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
+
+PODFILE CHECKSUM: c7e5a5429024ffffd6cb1f3034b5512dd90c8197
+
+COCOAPODS: 1.5.3
