@@ -9,6 +9,5 @@
 import Foundation
 
 protocol NetworkingClient {
-
     func request<T>(_ endpoint: EndpointProtocol, resultType:T.Type, completion: @escaping (_ result: Result<T>) -> Void)
 }

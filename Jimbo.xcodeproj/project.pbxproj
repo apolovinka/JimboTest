@@ -67,6 +67,8 @@
 		F68D9EFD226E5460001D5F38 /* PreviewLayoutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D9EFC226E5460001D5F38 /* PreviewLayoutConfigurator.swift */; };
 		F68D9EFF226E546C001D5F38 /* FullLayoutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D9EFE226E546C001D5F38 /* FullLayoutConfigurator.swift */; };
 		F68D9F02226E575F001D5F38 /* ErrorsHandlerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D9F01226E575F001D5F38 /* ErrorsHandlerHelper.swift */; };
+		F68D9F0B226E62D6001D5F38 /* JimboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D9F0A226E62D6001D5F38 /* JimboTests.swift */; };
+		F68D9F13226E6356001D5F38 /* NetworkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D9F12226E6356001D5F38 /* NetworkingTest.swift */; };
 		F69B85682266714E0074D82F /* TemplateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B85672266714E0074D82F /* TemplateParser.swift */; };
 		F69B857C226673350074D82F /* TemplatesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B857B226673350074D82F /* TemplatesService.swift */; };
 		F69B857F226678270074D82F /* TemplatesDisplayDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B857E226678270074D82F /* TemplatesDisplayDataManager.swift */; };
@@ -82,6 +84,16 @@
 		F69B85A52267A4980074D82F /* ObjectMapperRealmTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B85A42267A4980074D82F /* ObjectMapperRealmTransform.swift */; };
 		F69B85A72267BE860074D82F /* UpdateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B85A62267BE850074D82F /* UpdateAction.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F68D9F0D226E62D6001D5F38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F66776F32239494200AB4BDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F66776FA2239494200AB4BDB;
+			remoteInfo = Jimbo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C0EDC09CDC9374D7F127BF5 /* Pods-SeeAroundMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeeAroundMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeeAroundMe/Pods-SeeAroundMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +166,10 @@
 		F68D9EFC226E5460001D5F38 /* PreviewLayoutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewLayoutConfigurator.swift; sourceTree = "<group>"; };
 		F68D9EFE226E546C001D5F38 /* FullLayoutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullLayoutConfigurator.swift; sourceTree = "<group>"; };
 		F68D9F01226E575F001D5F38 /* ErrorsHandlerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorsHandlerHelper.swift; sourceTree = "<group>"; };
+		F68D9F08226E62D6001D5F38 /* JimboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JimboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F68D9F0A226E62D6001D5F38 /* JimboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimboTests.swift; sourceTree = "<group>"; };
+		F68D9F0C226E62D6001D5F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F68D9F12226E6356001D5F38 /* NetworkingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTest.swift; sourceTree = "<group>"; };
 		F69B85672266714E0074D82F /* TemplateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateParser.swift; sourceTree = "<group>"; };
 		F69B857B226673350074D82F /* TemplatesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesService.swift; sourceTree = "<group>"; };
 		F69B857E226678270074D82F /* TemplatesDisplayDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesDisplayDataManager.swift; sourceTree = "<group>"; };
@@ -176,6 +192,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0676E9624DBC21C3AF5644 /* Pods_Jimbo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68D9F05226E62D6001D5F38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				F66776FD2239494200AB4BDB /* Jimbo */,
+				F68D9F09226E62D6001D5F38 /* JimboTests */,
 				F66776FC2239494200AB4BDB /* Products */,
 				86058D0B41428842AF2DB76C /* Pods */,
 				6078B3371A9710C872C6C622 /* Frameworks */,
@@ -216,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				F66776FB2239494200AB4BDB /* Jimbo.app */,
+				F68D9F08226E62D6001D5F38 /* JimboTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -710,6 +735,16 @@
 			path = ErrorsHandler;
 			sourceTree = "<group>";
 		};
+		F68D9F09226E62D6001D5F38 /* JimboTests */ = {
+			isa = PBXGroup;
+			children = (
+				F68D9F0A226E62D6001D5F38 /* JimboTests.swift */,
+				F68D9F12226E6356001D5F38 /* NetworkingTest.swift */,
+				F68D9F0C226E62D6001D5F38 /* Info.plist */,
+			);
+			path = JimboTests;
+			sourceTree = "<group>";
+		};
 		F69B857A2266732A0074D82F /* Templates */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,18 +845,40 @@
 			productReference = F66776FB2239494200AB4BDB /* Jimbo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F68D9F07226E62D6001D5F38 /* JimboTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F68D9F0F226E62D6001D5F38 /* Build configuration list for PBXNativeTarget "JimboTests" */;
+			buildPhases = (
+				F68D9F04226E62D6001D5F38 /* Sources */,
+				F68D9F05226E62D6001D5F38 /* Frameworks */,
+				F68D9F06226E62D6001D5F38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F68D9F0E226E62D6001D5F38 /* PBXTargetDependency */,
+			);
+			name = JimboTests;
+			productName = JimboTests;
+			productReference = F68D9F08226E62D6001D5F38 /* JimboTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		F66776F32239494200AB4BDB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Jimbo;
 				TargetAttributes = {
 					F66776FA2239494200AB4BDB = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					F68D9F07226E62D6001D5F38 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = F66776FA2239494200AB4BDB;
 					};
 				};
 			};
@@ -839,6 +896,7 @@
 			projectRoot = "";
 			targets = (
 				F66776FA2239494200AB4BDB /* Jimbo */,
+				F68D9F07226E62D6001D5F38 /* JimboTests */,
 			);
 		};
 /* End PBXProject section */
@@ -853,6 +911,13 @@
 				F66777E72239678C00AB4BDB /* Localizable.strings in Resources */,
 				F667773F22394AFF00AB4BDB /* Assets.xcassets in Resources */,
 				F667774122394AFF00AB4BDB /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68D9F06226E62D6001D5F38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,7 +1066,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F68D9F04226E62D6001D5F38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F68D9F0B226E62D6001D5F38 /* JimboTests.swift in Sources */,
+				F68D9F13226E6356001D5F38 /* NetworkingTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F68D9F0E226E62D6001D5F38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F66776FA2239494200AB4BDB /* Jimbo */;
+			targetProxy = F68D9F0D226E62D6001D5F38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F667773A22394AFF00AB4BDB /* LaunchScreen.storyboard */ = {
@@ -1189,6 +1271,48 @@
 			};
 			name = Release;
 		};
+		F68D9F10226E62D6001D5F38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8NHQQ55HP3;
+				INFOPLIST_FILE = JimboTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = aleplv.JimboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jimbo.app/Jimbo";
+			};
+			name = Debug;
+		};
+		F68D9F11226E62D6001D5F38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8NHQQ55HP3;
+				INFOPLIST_FILE = JimboTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = aleplv.JimboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jimbo.app/Jimbo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1206,6 +1330,15 @@
 			buildConfigurations = (
 				F66777242239494400AB4BDB /* Debug */,
 				F66777252239494400AB4BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F68D9F0F226E62D6001D5F38 /* Build configuration list for PBXNativeTarget "JimboTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F68D9F10226E62D6001D5F38 /* Debug */,
+				F68D9F11226E62D6001D5F38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

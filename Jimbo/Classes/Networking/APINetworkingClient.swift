@@ -27,53 +27,118 @@ final class APINetworkingClient : NetworkingClient {
 
             self.performLogIfNeeded(for: response, endpoint: endpoint)
 
-            self.handleResults(with: endpoint,
-                               response: response,
-                               completion: completion)
+            if response.result.isSuccess {
+                self.handleResults(with: endpoint,
+                                   resultValue: response.result.value,
+                                   resultType: T.self,
+                                   completion: completion)
+            } else {
+                completion(Result.failure(response.result.error))
+            }
 
         }
 
     }
 
     /// Handles response
-    private func handleResults<T>(with endpoint: EndpointProtocol,
-                                  response: DataResponse<Any>,
-                                  completion: @escaping (Result<T>) -> Void) {
+    func handleResults<T>(with endpoint: EndpointProtocol,
+                          resultValue: Any?,
+                          resultType: T.Type,
+                          completion: @escaping (Result<T>) -> Void) {
 
-        if response.result.isSuccess {
+        // Check if response is not an error
+        if let error = self.validateResult(value: resultValue) {
+            completion(Result.failure(error))
+            return
+        }
 
-            // Check if a parser is available
-            if let parser = endpoint.parser {
+        // Check if a parser is available
+        if let parser = endpoint.parser {
 
-                parser.parse(response.result.value) { result in
-                    if result.isSuccess {
-                        completion(self.validateResultValueType(resultValue: result.value, validationType: T.self))
-                    } else {
-                        completion(Result.failure(result.error))
-                    }
+            parser.parse(resultValue) { result in
+                if result.isSuccess {
+                    completion(self.validateResultValueType(resultValue: result.value, validationType: T.self))
+                } else {
+                    completion(Result.failure(result.error))
                 }
-
-                // If not - return a raw data from the networking client decoder
-            } else {
-                completion(
-                    self.validateResultValueType(resultValue: response.result.value, validationType: T.self)
-                )
             }
+
+            // If not - return a raw data from the networking client decoder
         } else {
-            completion(Result.failure(response.result.error))
+            completion(
+                self.validateResultValueType(resultValue: resultValue, validationType: T.self)
+            )
         }
 
     }
 
-    /// Validate a result value type with a generic type
-    private func validateResultValueType<T>(resultValue:Any?, validationType:T.Type) -> Result<T> {
-        if let value = resultValue as? T {
-            return Result.success(value)
+//    func handleResults<T>(with endpoint: EndpointProtocol,
+//                                  response: DataResponse<Any>,
+//                                  completion: @escaping (Result<T>) -> Void) {
+//
+//        if response.result.isSuccess {
+//
+//            // Check if a parser is available
+//            if let parser = endpoint.parser {
+//
+//                parser.parse(response.result.value) { result in
+//                    if result.isSuccess {
+//                        completion(self.validateResultValueType(resultValue: result.value, validationType: T.self))
+//                    } else {
+//                        completion(Result.failure(result.error))
+//                    }
+//                }
+//
+//                // If not - return a raw data from the networking client decoder
+//            } else {
+//                completion(
+//                    self.validateResultValueType(resultValue: response.result.value, validationType: T.self)
+//                )
+//            }
+//        } else {
+//            completion(Result.failure(response.result.error))
+//        }
+//
+//    }
+
+    // Validate a result value type with a generic type
+    func validateResultValueType<T>(resultValue:Any?, validationType:T.Type) -> Result<T> {
+        guard let resultValue = resultValue else {
+            return Result.failure(NetworkingError.emptyResponse)
+        }
+        if type(of: resultValue) == validationType || validationType == Any.self {
+            return Result.success(resultValue as? T)
         }
         return Result.failure(NetworkingError.invalidReponseDataType)
     }
 
-    private func performLogIfNeeded(for response: DataResponse<Any>, endpoint: EndpointProtocol) {
+    func validateResult(value: Any?) -> Error? {
+
+        guard let value = value else {
+            return NetworkingError.emptyResponse
+        }
+
+        guard value is Dictionary<AnyHashable,Any> || value is Array<Any> else {
+            return NetworkingError.invalidData
+        }
+
+        if let value = value as? [AnyHashable : Any], let errorValue = value["error"] as? [AnyHashable : Any] {
+
+            let message: String = (errorValue["text"] as? String) ?? "An error was occurred."
+            var error: NetworkingError!
+            if let code = errorValue["code"] as? Int {
+                error = NetworkingError.failureCode(code: "\(code)", message: message)
+            } else {
+                error = NetworkingError.failure(message: message)
+            }
+            return error
+
+        }
+
+        return nil
+    }
+
+    func performLogIfNeeded(for response: DataResponse<Any>, endpoint: EndpointProtocol) {
         guard self.loggingEnabled else {
             return
         }
