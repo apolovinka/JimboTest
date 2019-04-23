@@ -33,7 +33,6 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
 
         self.previewImageView.layer.borderColor = UIColor(white: 0.1, alpha: 0.2).cgColor
         self.previewImageView.layer.borderWidth = 1.0/UIScreen.main.scale
-        self.previewImageView.layer.cornerRadius = 2.0
         self.previewImageView.backgroundColor = UIColor(white: 0.95, alpha: 1)
 
         self.shadowView.layer.shadowColor = UIColor.black.withAlphaComponent(0.15).cgColor

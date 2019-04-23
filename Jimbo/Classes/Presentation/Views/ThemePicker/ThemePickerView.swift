@@ -22,7 +22,7 @@ private struct Configuration {
     static let pickerItemWidth: CGFloat = 35.0
     static let pickerItemMaxSpace: CGFloat = 8.0
     static let selectionIndicatorWidth: CGFloat = 3.0
-    static let selectionIndicatorTopPadding: CGFloat = 6.0
+    static let selectionIndicatorTopPadding: CGFloat = 4.0
 }
 
 class ThemesPickerView: UIView {

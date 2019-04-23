@@ -26,7 +26,7 @@ class TemplatesViewController: UIViewController {
     @IBOutlet weak var previewButton: UIButton!
     @IBOutlet weak var themesPickerView: ThemesPickerView!
     @IBOutlet weak var activityLabel: UILabel!
-    @IBOutlet weak var closeButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var previewButtonTopConstraint: NSLayoutConstraint!
     
     let disposeBag = DisposeBag()
 
@@ -51,7 +51,7 @@ class TemplatesViewController: UIViewController {
         self.updateCollectionViewLayout()
 
         if #available(iOS 11.0, *), self.view.safeAreaInsets.top != 0 {
-            self.closeButtonTopConstraint.constant = 10.0
+            self.previewButtonTopConstraint.constant = 10.0
         }
     }
 
