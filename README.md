@@ -25,4 +25,4 @@ The collection view has two states: a list of templates and a full screen templa
 All the logic related to the collection view (e.g. data source methods, delegate methods, list updates logic) is in the TemplatesDisplayDataManager.
 The template variations picker described in the ThemePickerView class.
 
-P.S. For the first look the project structure appears overcomplicated with all their directories and subdirectories for the test challenge. But by this way, I wanted to show how I organize a structure in real projects which can contain 10 and more screens.
+P.S. For the first look the project structure appears overcomplicated with all its directories and subdirectories for the test challenge. But by this way, I wanted to show how I organize a structure in real projects which can contain 10 and more screens.
