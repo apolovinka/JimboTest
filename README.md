@@ -24,3 +24,7 @@ All the logic related to the collection view (e.g. data source methods, delegate
 The template variations picker described in the ThemePickerView class.
 
 P.S. For the first look the project structure appears overcomplicated for the test challenge, with all its directories and subdirectories. But by this way, I wanted to show how I organize a structure in real projects which can contain 10 and more screens.
+
+# Updated to v1.1
+
+The app devided into two screens (modules). The Templates module becomes a parent for the main and details modules. The custom zoom animation was added to the pusn and pop action between screens.
