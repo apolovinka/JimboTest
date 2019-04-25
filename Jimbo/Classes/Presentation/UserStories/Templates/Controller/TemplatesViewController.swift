@@ -10,32 +10,26 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
 enum TemplatesAppearanceState {
     case preview
     case full
 }
 
-class TemplatesViewController: UIViewController {
+fileprivate let inAnimationDuration: TimeInterval = 0.3
+fileprivate let outAnimationDuration: TimeInterval = 0.1
 
-    static let inAnimationDuration: TimeInterval = 0.3
-    static let outAnimationDuration: TimeInterval = 0.1
+class TemplatesViewController<T:TemplatesViewModelProtocol>: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var previewButton: UIButton!
-    @IBOutlet weak var themesPickerView: ThemesPickerView!
-    @IBOutlet weak var activityLabel: UILabel!
-    @IBOutlet weak var previewButtonTopConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var themesPickerView: ThemesPickerView?
+    @IBOutlet weak var closeButton: UIButton!
     let disposeBag = DisposeBag()
 
-    var viewModel: TemplatesViewModel!
+    var viewModel: T!
     var displayDataManager: TemplatesDisplayDataManager!
 
     private var appearanceState: TemplatesAppearanceState = .preview
-
-    private var collectionViewLayoutConfigurator = CollectionViewLayoutConfigurator()
+    private(set) var collectionViewLayoutConfigurator = CollectionViewLayoutConfigurator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,24 +43,18 @@ class TemplatesViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.updateCollectionViewLayout()
-
-        if #available(iOS 11.0, *), self.view.safeAreaInsets.top != 0 {
-            self.previewButtonTopConstraint.constant = 10.0
-        }
     }
 
-    private func setupUI() {
+    internal func setupUI() {
         self.displayDataManager.setup(collectionView: self.collectionView, listHandler: self.viewModel.listHandler)
-        self.set(appearanceState: .preview)
         if #available(iOS 11.0, *) {
             self.collectionView.contentInsetAdjustmentBehavior = .always
         }
-        self.collectionView.showsHorizontalScrollIndicator = false
-        self.themesPickerView.delegate = self
-        self.themesPickerView.reloadData()
+        self.themesPickerView?.delegate = self
+        self.themesPickerView?.reloadData()
     }
 
-    private func setupBindings() {
+    internal func setupBindings() {
         
         self.displayDataManager.actions.subscribe(onNext: {
             [unowned self] action in
@@ -74,14 +62,12 @@ class TemplatesViewController: UIViewController {
         }).disposed(by: self.disposeBag)
 
         self.viewModel.isActive.bind(to: self.collectionView.rx.isHidden).disposed(by: self.disposeBag)
-        self.viewModel.isActive.bind(to: self.activityIndicator.rx.isAnimating).disposed(by: self.disposeBag)
-        self.viewModel.isActive.map{!$0}.bind(to: self.activityLabel.rx.isHidden).disposed(by: self.disposeBag)
 
         Observable.combineLatest(self.viewModel.selectedTemplateVariations, self.viewModel.selectedTemplateName)
             .asObservable()
             .subscribe(onNext: {
             [unowned self] _ in
-            self.themesPickerView.reloadData()
+            self.themesPickerView?.reloadData()
         }).disposed(by: self.disposeBag)
 
         self.viewModel.error.subscribe(onNext: {
@@ -90,16 +76,10 @@ class TemplatesViewController: UIViewController {
         }).disposed(by: self.disposeBag)
     }
 
-    private func fixCellsZIndex(topIndex: Int) {
-        let topCell = self.collectionView.cellForItem(at: IndexPath(item: topIndex, section: 0))
-        topCell?.layer.zPosition = CGFloat(self.collectionView.numberOfItems(inSection: 0))
-    }
-
-    private func set(appearanceState: TemplatesAppearanceState, animated: Bool = false) {
+    internal func set(appearanceState: TemplatesAppearanceState, animated: Bool = false) {
 
         var config: ListCollectionCalculationItem!
         let layout = TemplatesCollectionViewFlowLayout()
-        var isPreviewButtonHidden = true
         var isThemePickerHidden = true
 
         switch appearanceState {
@@ -110,8 +90,7 @@ class TemplatesViewController: UIViewController {
         case .full:
             config = FullListCollectionConfiguration()
             layout.scrollDirection = .horizontal
-            self.collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
-            isPreviewButtonHidden = false
+            self.collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
             isThemePickerHidden = false
         }
 
@@ -120,49 +99,31 @@ class TemplatesViewController: UIViewController {
         self.collectionViewLayoutConfigurator.calculate(with: UIScreen.main.bounds.size, layout: layout)
         self.collectionView.setCollectionViewLayout(layout, animated: animated)
 
-        self.setPreviewButton(hidden: isPreviewButtonHidden, animated: animated)
         self.setThemePicker(hidden: isThemePickerHidden, animated: animated)
 
         self.appearanceState = appearanceState
 
     }
 
-    private func setPreviewButton(hidden: Bool, animated: Bool = false) {
-
+    internal func setThemePicker(hidden: Bool, animated: Bool) {
         if !hidden {
-            self.previewButton.alpha = 0
-            self.previewButton.isHidden = false
+            self.themesPickerView?.alpha = 0
+            self.themesPickerView?.isHidden = false
+            self.themesPickerView?.set(enabled: true)
         }
-        let duration = hidden ? TemplatesViewController.outAnimationDuration : TemplatesViewController.inAnimationDuration
+        let duration = hidden ? outAnimationDuration : inAnimationDuration
         UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
-            self.previewButton.alpha = hidden ? 0 : 1.0
+            self.themesPickerView?.alpha = hidden ? 0 : 1.0
         }, completion: {
             finished in
             if finished {
-                self.previewButton.isHidden = hidden
-            }
-        })
-    }
-
-    private func setThemePicker(hidden: Bool, animated: Bool) {
-        if !hidden {
-            self.themesPickerView.alpha = 0
-            self.themesPickerView.isHidden = false
-            self.themesPickerView.set(enabled: true)
-        }
-        let duration = hidden ? TemplatesViewController.outAnimationDuration : TemplatesViewController.inAnimationDuration
-        UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
-            self.themesPickerView.alpha = hidden ? 0 : 1.0
-        }, completion: {
-            finished in
-            if finished {
-                self.themesPickerView.isHidden = hidden
+                self.themesPickerView?.isHidden = hidden
             }
         })
 
     }
 
-    private func updateCollectionViewLayout() {
+    internal func updateCollectionViewLayout() {
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         self.collectionViewLayoutConfigurator.calculate(with: UIScreen.main.bounds.size, layout: layout)
     }
@@ -173,19 +134,17 @@ class TemplatesViewController: UIViewController {
         self.set(appearanceState: .preview, animated: true)
     }
 
-    private func displayDataManagerActionsHandler(action: TemplatesDisplayDataManager.Action) {
+    internal func displayDataManagerActionsHandler(action: TemplatesDisplayDataManager.Action) {
         switch action {
         case .didSelect(index: let index):
-            self.fixCellsZIndex(topIndex: index)
             if self.appearanceState == .preview {
-                self.set(appearanceState: .full, animated: true)
                 self.viewModel.didSelectItemAction(index: index)
             }
         case .didStartScrolling:
-            self.themesPickerView.set(enabled: false, animated: true)
+            self.themesPickerView?.set(enabled: false, animated: true)
         case .didEndScrolling(index: let index):
             self.viewModel.didSelectItemAction(index: index)
-            self.themesPickerView.set(enabled: true, animated: true)
+            self.themesPickerView?.set(enabled: true, animated: true)
         }
     }
 }

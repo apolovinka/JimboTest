@@ -37,7 +37,7 @@ class TemplateCellViewModel : CellViewModel {
     }
 
     var shouldReload: Bool {
-        return self.model.shouldReload
+        return self.model.shouldReload && !self.isLoading
     }
 
     private (set) var isLoading: Bool = false
@@ -46,6 +46,22 @@ class TemplateCellViewModel : CellViewModel {
 
     init(templateService: TemplatesService) {
         self.templateService = templateService
+    }
+
+    private func load() {
+        self.isLoading = true
+        self.output.refresh()
+        self.templateService.templateDetails(identifier: model.identifier) {
+            _ in
+            self.isLoading = false
+            self.output.refresh()
+        }
+    }
+
+    // MARK: - View Input
+
+    func reloadAction() {
+        self.load()
     }
 
     // MARK: - Protocol Input
@@ -66,11 +82,7 @@ class TemplateCellViewModel : CellViewModel {
             }
         }
         if !model.isLoaded && !model.shouldReload {
-            self.isLoading = true
-            self.templateService.templateDetails(identifier: model.identifier) {
-                _ in
-                self.isLoading = false
-            }
+            self.load()
         }
         self.output.refresh()
     }

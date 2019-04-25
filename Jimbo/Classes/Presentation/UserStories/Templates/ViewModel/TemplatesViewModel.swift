@@ -10,9 +10,27 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class TemplatesViewModel {
+protocol TemplatesViewModelProtocol {
 
-    var router: TemplatesRouter!
+    var templatesService: TemplatesService! { set get }
+
+    var isActive: BehaviorRelay<Bool> { get }
+    var canReload: BehaviorRelay<Bool> { get }
+    var error: PublishRelay<Error> { get }
+
+    var selectedTemplateName: BehaviorRelay<String> { get }
+    var selectedTemplateVariations: BehaviorRelay<([TemplateVariationItem], Int)> { get }
+    var templatedUpdatedAtIndex: PublishRelay<Int> { get }
+    var listHandler: ListHandler<TemplateRM>! { get }
+    var selectedIndex: BehaviorRelay<Int> { get } 
+
+    func setup()
+    func didSelectVariationAction(index: Int, in selectetItemIndex: Int)
+    func didSelectItemAction(index: Int)
+}
+
+class TemplatesViewModel : TemplatesViewModelProtocol {
+
     var templatesService: TemplatesService!
     
     let isActive = BehaviorRelay(value: false)
@@ -21,27 +39,15 @@ class TemplatesViewModel {
 
     let selectedTemplateName = BehaviorRelay(value: "")
     let selectedTemplateVariations = BehaviorRelay(value: ([TemplateVariationItem](), 0))
+    let selectedIndex = BehaviorRelay(value: 0)
     let templatedUpdatedAtIndex = PublishRelay<Int>()
 
     private var templatesList: TemplatesList!
     private (set) var listHandler: ListHandler<TemplateRM>!
 
     func setup() {
-
         self.templatesList = TemplatesList(service: self.templatesService)
         self.listHandler = ListHandlerAdapter(observableList: self.templatesList)
-
-        self.isActive.accept(true)
-        self.templatesService.templatesList() {
-            result in
-            if result.isFailure {
-                self.canReload.accept(true)
-                if let error = result.error {
-                    self.error.accept(error)
-                }
-            }
-            self.isActive.accept(false)
-        }
     }
 
     // MARK: - View Input
@@ -56,6 +62,7 @@ class TemplatesViewModel {
     }
 
     func didSelectItemAction(index: Int) {
+        self.selectedIndex.accept(index)
         let item = self.templatesList.items[index]
         let variations = Array(item.variations.map({TemplateVariationItem(color: $0.iconColorObject)}))
         var selectedVariationIndex = 0

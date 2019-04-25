@@ -14,7 +14,7 @@ class UserStoryComponentsAssembly: Assembly {
     func assemble(container: Container) {
         container.register(CellViewModelConfigurator.self) { _ in
             return CellViewModelConfigurator(container: container)
-        }.inObjectScope(.container)
+        }
     }
 
 }

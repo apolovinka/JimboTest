@@ -83,6 +83,17 @@
 		F69B85A122679EEB0074D82F /* TemplateEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B85A022679EEB0074D82F /* TemplateEndpoint.swift */; };
 		F69B85A52267A4980074D82F /* ObjectMapperRealmTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B85A42267A4980074D82F /* ObjectMapperRealmTransform.swift */; };
 		F69B85A72267BE860074D82F /* UpdateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69B85A62267BE850074D82F /* UpdateAction.swift */; };
+		F6B18B35226F265500113CE6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B2E226F265500113CE6 /* MainViewModel.swift */; };
+		F6B18B36226F265500113CE6 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B30226F265500113CE6 /* MainAssembly.swift */; };
+		F6B18B37226F265500113CE6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B32226F265500113CE6 /* MainViewController.swift */; };
+		F6B18B38226F265500113CE6 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B34226F265500113CE6 /* MainRouter.swift */; };
+		F6B18B45226F547B00113CE6 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B3E226F547B00113CE6 /* DetailViewModel.swift */; };
+		F6B18B46226F547B00113CE6 /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B40226F547B00113CE6 /* DetailAssembly.swift */; };
+		F6B18B47226F547B00113CE6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B42226F547B00113CE6 /* DetailViewController.swift */; };
+		F6B18B48226F547B00113CE6 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B44226F547B00113CE6 /* DetailRouter.swift */; };
+		F6B18B4E2270635500113CE6 /* ZoomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B4D2270635300113CE6 /* ZoomTransitionAnimator.swift */; };
+		F6B18B51227064BB00113CE6 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B50227064BB00113CE6 /* BaseNavigationController.swift */; };
+		F6B18B562270655E00113CE6 /* AnimatableTransitionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B18B552270655E00113CE6 /* AnimatableTransitionProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +195,17 @@
 		F69B85A022679EEB0074D82F /* TemplateEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateEndpoint.swift; sourceTree = "<group>"; };
 		F69B85A42267A4980074D82F /* ObjectMapperRealmTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectMapperRealmTransform.swift; sourceTree = "<group>"; };
 		F69B85A62267BE850074D82F /* UpdateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAction.swift; sourceTree = "<group>"; };
+		F6B18B2E226F265500113CE6 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F6B18B30226F265500113CE6 /* MainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		F6B18B32226F265500113CE6 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F6B18B34226F265500113CE6 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		F6B18B3E226F547B00113CE6 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		F6B18B40226F547B00113CE6 /* DetailAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
+		F6B18B42226F547B00113CE6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F6B18B44226F547B00113CE6 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		F6B18B4D2270635300113CE6 /* ZoomTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomTransitionAnimator.swift; sourceTree = "<group>"; };
+		F6B18B50227064BB00113CE6 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		F6B18B552270655E00113CE6 /* AnimatableTransitionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableTransitionProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +330,7 @@
 		F667773322394AFF00AB4BDB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F6B18B532270653F00113CE6 /* TransitionAnimation */,
 				F68D9EE7226D2781001D5F38 /* Drawings */,
 				F68D9ECE226903D9001D5F38 /* CellViewModelConfigurator */,
 				F68D9EBE22689ADF001D5F38 /* ObjectsListHandler */,
@@ -356,6 +379,7 @@
 				F667774E22394D5700AB4BDB /* Storyboards */,
 				F667774C22394D4800AB4BDB /* UserStories */,
 				F68D9ED72269F1E9001D5F38 /* Views */,
+				F6B18B4F227064AB00113CE6 /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -405,6 +429,8 @@
 			isa = PBXGroup;
 			children = (
 				F667779F2239549700AB4BDB /* Templates */,
+				F6B18B2C226F265500113CE6 /* Main */,
+				F6B18B3C226F547B00113CE6 /* Detail */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -823,6 +849,133 @@
 			path = ObjectMapper;
 			sourceTree = "<group>";
 		};
+		F6B18B2C226F265500113CE6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B2F226F265500113CE6 /* Assemby */,
+				F6B18B2D226F265500113CE6 /* ViewModel */,
+				F6B18B31226F265500113CE6 /* Controller */,
+				F6B18B33226F265500113CE6 /* Router */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F6B18B2D226F265500113CE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B2E226F265500113CE6 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6B18B2F226F265500113CE6 /* Assemby */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B30226F265500113CE6 /* MainAssembly.swift */,
+			);
+			path = Assemby;
+			sourceTree = "<group>";
+		};
+		F6B18B31226F265500113CE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B32226F265500113CE6 /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F6B18B33226F265500113CE6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B34226F265500113CE6 /* MainRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F6B18B3C226F547B00113CE6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B3F226F547B00113CE6 /* Assemby */,
+				F6B18B41226F547B00113CE6 /* Controller */,
+				F6B18B3D226F547B00113CE6 /* ViewModel */,
+				F6B18B43226F547B00113CE6 /* Router */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F6B18B3D226F547B00113CE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B3E226F547B00113CE6 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6B18B3F226F547B00113CE6 /* Assemby */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B40226F547B00113CE6 /* DetailAssembly.swift */,
+			);
+			path = Assemby;
+			sourceTree = "<group>";
+		};
+		F6B18B41226F547B00113CE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B42226F547B00113CE6 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F6B18B43226F547B00113CE6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B44226F547B00113CE6 /* DetailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F6B18B4922705CF000113CE6 /* ZoomTransitionAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B4D2270635300113CE6 /* ZoomTransitionAnimator.swift */,
+			);
+			path = ZoomTransitionAnimator;
+			sourceTree = "<group>";
+		};
+		F6B18B4F227064AB00113CE6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B52227064C400113CE6 /* NavigationController */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F6B18B52227064C400113CE6 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B50227064BB00113CE6 /* BaseNavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		F6B18B532270653F00113CE6 /* TransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B542270654900113CE6 /* Protocols */,
+				F6B18B4922705CF000113CE6 /* ZoomTransitionAnimator */,
+			);
+			path = TransitionAnimation;
+			sourceTree = "<group>";
+		};
+		F6B18B542270654900113CE6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F6B18B552270655E00113CE6 /* AnimatableTransitionProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1008,9 +1161,12 @@
 				F68D9EBC2268902D001D5F38 /* RealmObject+Mapping.swift in Sources */,
 				F66777C12239613E00AB4BDB /* NetworkingTypes.swift in Sources */,
 				F68D9EFD226E5460001D5F38 /* PreviewLayoutConfigurator.swift in Sources */,
+				F6B18B37226F265500113CE6 /* MainViewController.swift in Sources */,
 				F69B859B226786330074D82F /* RealmObservableList.swift in Sources */,
+				F6B18B562270655E00113CE6 /* AnimatableTransitionProtocols.swift in Sources */,
 				F66777A82239549700AB4BDB /* TemplatesViewModel.swift in Sources */,
 				F66777AA2239549700AB4BDB /* TemplatesViewController.swift in Sources */,
+				F6B18B38226F265500113CE6 /* MainRouter.swift in Sources */,
 				F66777902239526100AB4BDB /* UIImage+Utils.swift in Sources */,
 				F667778D2239526100AB4BDB /* DateFormatter+Utils.swift in Sources */,
 				F68D9EFF226E546C001D5F38 /* FullLayoutConfigurator.swift in Sources */,
@@ -1019,19 +1175,24 @@
 				F69B8598226776830074D82F /* TemplatesList.swift in Sources */,
 				F66777E12239668F00AB4BDB /* ApplicationNotificationProtocol.swift in Sources */,
 				F66777EB2239686200AB4BDB /* String+Localizable.swift in Sources */,
+				F6B18B51227064BB00113CE6 /* BaseNavigationController.swift in Sources */,
 				F69B857F226678270074D82F /* TemplatesDisplayDataManager.swift in Sources */,
+				F6B18B47226F547B00113CE6 /* DetailViewController.swift in Sources */,
 				F66777932239526100AB4BDB /* Date+Utils.swift in Sources */,
 				F66777F22239695D00AB4BDB /* NewtorkingAssembly.swift in Sources */,
 				F66777E22239673000AB4BDB /* NetworkingError.swift in Sources */,
 				F69B8588226679650074D82F /* ConfigurableCell.swift in Sources */,
 				F667778F2239526100AB4BDB /* UIViewController+Utils.swift in Sources */,
+				F6B18B36226F265500113CE6 /* MainAssembly.swift in Sources */,
 				F68D9EDA2269F1FB001D5F38 /* CellProtocol.swift in Sources */,
+				F6B18B4E2270635500113CE6 /* ZoomTransitionAnimator.swift in Sources */,
 				F69B85A52267A4980074D82F /* ObjectMapperRealmTransform.swift in Sources */,
 				F69B85842266790D0074D82F /* TemplateCell.swift in Sources */,
 				F667778E2239526100AB4BDB /* NSNumber+Utils.swift in Sources */,
 				F667778A2239526100AB4BDB /* UIButton+HitArea.m in Sources */,
 				F667779B2239545300AB4BDB /* CoreAssembly.swift in Sources */,
 				F66777982239542B00AB4BDB /* ServicesAssembly.swift in Sources */,
+				F6B18B48226F547B00113CE6 /* DetailRouter.swift in Sources */,
 				F68D9EE1226D1275001D5F38 /* ThemePickerView.swift in Sources */,
 				F667778B2239526100AB4BDB /* UIView+Utils.swift in Sources */,
 				F69B85A72267BE860074D82F /* UpdateAction.swift in Sources */,
@@ -1039,6 +1200,7 @@
 				F66777B522395E4900AB4BDB /* LoggingHelper.swift in Sources */,
 				F68D9EC422689B2B001D5F38 /* ObjectsListHandler+RealmAdapter.swift in Sources */,
 				F69B85A122679EEB0074D82F /* TemplateEndpoint.swift in Sources */,
+				F6B18B35226F265500113CE6 /* MainViewModel.swift in Sources */,
 				F66777C8223963EE00AB4BDB /* APINetworkingClient.swift in Sources */,
 				F68D9F02226E575F001D5F38 /* ErrorsHandlerHelper.swift in Sources */,
 				F667778C2239526100AB4BDB /* UIColor+Hex.swift in Sources */,
@@ -1051,6 +1213,7 @@
 				F69B858D22667DFF0074D82F /* Template.swift in Sources */,
 				F66777C22239614300AB4BDB /* Parser.swift in Sources */,
 				F667774022394AFF00AB4BDB /* AppDelegate.swift in Sources */,
+				F6B18B46226F547B00113CE6 /* DetailAssembly.swift in Sources */,
 				F68D9ED622692AA3001D5F38 /* UserStoryComponentsAssembly.swift in Sources */,
 				F66777C32239614300AB4BDB /* NetworkingClient.swift in Sources */,
 				F68D9EE9226D278B001D5F38 /* Drawings.swift in Sources */,
@@ -1063,6 +1226,7 @@
 				F69B85682266714E0074D82F /* TemplateParser.swift in Sources */,
 				F667775C22394E9100AB4BDB /* ApplicationAssembler.swift in Sources */,
 				F66777E42239673000AB4BDB /* TemplatesListParser.swift in Sources */,
+				F6B18B45226F547B00113CE6 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

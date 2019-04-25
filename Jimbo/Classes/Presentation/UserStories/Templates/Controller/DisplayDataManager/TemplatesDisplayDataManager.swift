@@ -40,7 +40,6 @@ class TemplatesDisplayDataManager : NSObject  {
     var selectedIndex : Int? {
         let rect = CGRect(origin: self.collectionView.contentOffset, size: self.collectionView.bounds.size)
         let visiblePoint = CGPoint(x: rect.midX, y: rect.midY)
-        
         if let indexPath = self.collectionView.indexPathForItem(at: visiblePoint), self.appearanceState == .full {
             return indexPath.item
         }

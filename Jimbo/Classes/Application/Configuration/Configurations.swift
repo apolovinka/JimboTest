@@ -12,7 +12,7 @@ struct Configurations {
 
     struct Networking {
         static let baseURL = "https://api.dmp.jimdo-server.com"
-        static let loggingEnabled = false
+        static let loggingEnabled = true
     }
 
 }

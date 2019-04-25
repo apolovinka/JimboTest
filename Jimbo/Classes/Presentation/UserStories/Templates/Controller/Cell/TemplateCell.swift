@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import Kingfisher
-import PureLayout
 
 class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
 
@@ -17,6 +16,7 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
         static let imageAspectRatio: CGFloat = 1.775
         static let nameLabelTopPadding: CGFloat = 5.0
         static let nameLabelHeight: CGFloat = 18.0
+        static let animationScale: CGFloat = 0.95
     }
     
     var viewModel: TemplateCellViewModel?
@@ -25,7 +25,15 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var reloadButton: UIButton!
 
+    var previewImageAlpha: CGFloat = 1.0 {
+        didSet {
+            self.previewImageView.alpha = self.previewImageAlpha
+            self.shadowView.alpha = self.previewImageAlpha
+        }
+    }
+    
     var appearenceState: TemplatesAppearanceState = .preview
 
     override func awakeFromNib() {
@@ -67,6 +75,37 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
         self.refreshUI()
     }
 
+    private func setActivityIndicator(hidden: Bool) {
+        if hidden {
+            self.activityIndicator.stopAnimating()
+        } else {
+            self.activityIndicator.startAnimating()
+        }
+    }
+
+    override var isHighlighted: Bool {
+        didSet {
+            guard self.appearenceState == .preview else {
+                return
+            }
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: {
+                var scale: CGFloat = 1.0
+                if self.isHighlighted {
+                    scale = Configurations.animationScale
+                }
+                let transform = CGAffineTransform.init(scaleX: scale, y: scale)
+                self.previewImageView.transform = transform
+                self.shadowView.transform = transform
+            }, completion: nil)
+        }
+    }
+
+    // MARK: - Actions
+
+    @IBAction func reloadButtonAction() {
+        self.viewModel?.reloadAction()
+    }
+
     // MARK: - Subviews framing logic
 
     private func refreshUI() {
@@ -75,20 +114,11 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
         self.refreshPreviewImageFrame()
         self.refreshNameLabelFrame()
         self.refreshShadowViewFrame()
+        self.refreshReloadButtonFrame()
     }
 
     private func refreshPreviewImageFrame() {
-
-        let nameLabelTopPadding = self.appearenceState == .preview ? Configurations.nameLabelTopPadding : 0
-        let imageHeight = self.frame.height - Configurations.nameLabelHeight - nameLabelTopPadding
-        let imageWidth = imageHeight / Configurations.imageAspectRatio
-        let imageSize = CGSize(width: imageWidth, height: imageHeight)
-        let imageOrigin = CGPoint(x: (self.frame.width-imageWidth)/2, y: 0)
-        var frame = self.previewImageView.frame
-        frame.size = imageSize
-        frame.origin = imageOrigin
-        self.previewImageView.frame = frame
-
+        self.previewImageView.frame = TemplateCell.previewImageFrame(for: self.appearenceState, fittedIn: self.frame.size)
         var activityFrame = self.activityIndicator.frame
         activityFrame.origin = CGPoint(x: frame.midX-activityFrame.width/2, y: frame.midY-activityFrame.height/2)
         self.activityIndicator.frame = activityFrame
@@ -99,6 +129,11 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
         nameLabelFrame.origin = CGPoint(x: (self.bounds.width - nameLabelFrame.width)/2, y: self.previewImageView.frame.height + Configurations.nameLabelTopPadding)
         nameLabelFrame.size = CGSize(width: nameLabelFrame.width, height: Configurations.nameLabelHeight)
         self.nameLabel.frame = nameLabelFrame
+    }
+
+
+    private func refreshReloadButtonFrame() {
+        self.reloadButton.center = self.previewImageView.center
     }
 
     private func refreshShadowViewFrame() {
@@ -112,6 +147,8 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
         self.shadowView.layer.add(animation, forKey: "shadow")
     }
 
+
+
     // MARK: - View Model Output
 
     func refresh() {
@@ -120,11 +157,8 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
         self.nameLabel.sizeToFit()
         self.refreshNameLabelFrame()
 
-        if self.viewModel?.isLoading ?? false {
-            self.activityIndicator.startAnimating()
-        } else {
-            self.activityIndicator.stopAnimating()
-        }
+        self.setActivityIndicator(hidden: !(self.viewModel?.isLoading ?? false))
+        self.reloadButton.isHidden = !(self.viewModel?.shouldReload ?? false)
 
         if let urlString = self.viewModel?.imageURLString, let url = URL(string: urlString) {
             let scale = UIScreen.main.scale
@@ -133,6 +167,34 @@ class TemplateCell: UICollectionViewCell, CellViewModelContainer, ReusableCell {
             let placeholder = self.previewImageView.image
             self.previewImageView.kf.setImage(with: url, placeholder: placeholder, options: [.processor(pocessor), .transition(.fade(0.2))])
         }
+    }
+
+}
+
+extension TemplateCell  {
+
+    class func previewImageFrame(for appearenceState: TemplatesAppearanceState, fittedIn size: CGSize) -> CGRect {
+        let nameLabelTopPadding = appearenceState == .preview ? Configurations.nameLabelTopPadding : 0
+        let imageHeight = size.height - Configurations.nameLabelHeight - nameLabelTopPadding
+        let imageWidth = imageHeight / Configurations.imageAspectRatio
+        let imageSize = CGSize(width: imageWidth, height: imageHeight)
+        let imageOrigin = CGPoint(x: (size.width - imageWidth)/2, y: 0)
+        return CGRect(origin: imageOrigin, size: imageSize)
+    }
+
+    func viewFromPreviewImage() -> UIView {
+        let image = self.previewImageView.image
+        let imageView = UIImageView(image: image)
+        imageView.frame = self.previewImageView.bounds
+        imageView.contentMode = self.previewImageView.contentMode
+        imageView.layer.shadowPath = self.shadowView.layer.shadowPath
+        imageView.layer.shadowColor = self.shadowView.layer.shadowColor
+        imageView.layer.shadowOffset = self.shadowView.layer.shadowOffset
+        imageView.layer.shadowRadius = self.shadowView.layer.shadowRadius
+        imageView.layer.shadowOpacity = self.shadowView.layer.shadowOpacity
+        imageView.layer.borderColor = self.previewImageView.layer.borderColor
+        imageView.layer.borderWidth = self.previewImageView.layer.borderWidth
+        return imageView
     }
 
 }

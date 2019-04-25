@@ -15,6 +15,8 @@ final class UserStoryAssembliesProvider {
         return [
             UserStoryComponentsAssembly(),
             TemplatesModuleAssemly(),
+            MainModuleAssemly(),
+            DetailModuleAssemly()
         ]
     }
 

@@ -20,7 +20,7 @@ protocol ListCollectionCalculationItem {
 
 class CollectionViewLayoutConfigurator {
 
-    private var item: ListCollectionCalculationItem!
+    private(set) var item: ListCollectionCalculationItem!
 
     func set(item: ListCollectionCalculationItem) {
         self.item = item
