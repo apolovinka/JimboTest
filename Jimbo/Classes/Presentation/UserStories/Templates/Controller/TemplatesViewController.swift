@@ -90,7 +90,7 @@ class TemplatesViewController<T:TemplatesViewModelProtocol>: UIViewController {
         case .full:
             config = FullListCollectionConfiguration()
             layout.scrollDirection = .horizontal
-            self.collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
+            self.collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
             isThemePickerHidden = false
         }
 
